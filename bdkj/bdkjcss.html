@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>js</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style>
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	.out{
+		margin: 50px 0 0 50px;
+	}
+	.One{
+        width: 95px;
+        height: 25px;
+        color: #d0021b;
+        border: 1px solid;
+        line-height: 25px;
+        text-align: center;
+        font-size: 12px;
+		margin-left: 10px;
+		display: inline-block;
+    }
+	</style>
+	<script>
+		window.onload=function(){
+			arr= [{"name":"待接单","status":"WAIT_ACCEPT","isShadowed":true}
+			,{"name":"待发货","status":"WAIT_DELIVER",
+			"isShadowed":true,"isCurrentStatus":true},{"name":"验货入库",
+			"status":"STOCK_IN"},{"name":"已完成","status":"DELIVERED"}];
+			var ojs=document.getElementById("js");
+			if(arr.length==1){
+				var odiv = document.createElement("div");
+				var op=document.createElement("p");
+				op.innerHTML="已中止";
+				odiv.setAttribute("class","One");
+				odiv.appendChild(op);
+				ojs.appendChild(odiv);
+			}else{
+				for(var i=0;i<arr.length;i++){
+					var odiv = document.createElement("div");
+					var op=document.createElement("p");
+					op.innerHTML=arr[i]['name'];
+					odiv.setAttribute("class","One");
+					if(arr[i]["isShadowed"]){
+						if(arr[i]["isCurrentStatus"]){
+							odiv.style.color="gray";
+						}else{
+							odiv.style.color="blue";
+						}
+					}
+					odiv.appendChild(op);
+					ojs.appendChild(odiv);
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="out" id="js">
+	</div>
+</body>
+</html>

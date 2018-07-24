@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>one</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+        *{
+            border: 0;
+            padding: 0px;
+            margin: 0px;
+        }
+        .sOne .first,.last{  
+    	    background-color: #e5e5e5;  
+    	    display: inline-block;   
+    	    position: relative;
+            font-size: 12px;
+            color: #666;
+            width: 82.5px;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+	    }
+        .sOne .first::after,.between::after{
+            content: '';
+            display: block;
+            position: absolute;
+            top:0;
+            right: -12px;
+            border-top: 12.5px solid transparent;
+            border-bottom: 12.5px solid transparent;
+            border-left: 12.5px solid #e5e5e5;
+        }
+        .sOne .between{
+            margin-left: 25px;
+            background-color: #e5e5e5;  
+    	    display: inline-block; 
+            font-size: 12px;
+            color: #666;
+            width: 70px;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+            position: relative;
+        }
+        .sOne .last{
+            margin-left: 25px;
+        }
+        .sOne .last::before{
+            right: 82.5px;
+        }
+        .sOne .between::before,.last::before{
+            content: '';
+            display: block;
+            position: absolute;
+            top:0;
+            right:70px;
+            border-top: 12.5px solid #e5e5e5;
+            border-bottom: 12.5px solid #e5e5e5;
+            border-left: 12.5px solid transparent;
+        }
+        #dai::after{
+            border-left-color: #108ee9;
+        }
+        #dai::before{
+            border-top-color: #108ee9;
+            border-bottom-color: #108ee9;
+        }
+        #dai{
+            background-color: #108ee9;
+        }
+        .sTwo{
+            width: 95px;
+            height: 25px;
+            color: #d0021b;
+            border: 1px solid #d0021b;
+            line-height: 25px;
+            text-align: center;
+            font-size: 12px;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="sOne">
+            <li class="first">
+                草稿
+            </li>
+            <li class="between" id="dai">
+                待审核
+            </li>
+            <li class="between">
+                复审核
+            </li>
+            <li class="last">
+                已核准
+            </li>
+        </div>
+        <div class="sTwo">
+            <p>已中止</p>
+        </div>
+    </body>
+</html>
